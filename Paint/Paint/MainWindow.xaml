@@ -1,0 +1,87 @@
+﻿<Window x:Class="Paint.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Paint"
+        mc:Ignorable="d"
+        Title="PaintMyLife" Height="820" Width="1280" WindowStartupLocation="CenterScreen"  SizeToContent="WidthAndHeight" Topmost="False" WindowState="Normal" ResizeMode="NoResize" FontFamily="Bodoni MT Black" FontSize="20">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="6*" />
+        </Grid.RowDefinitions>
+        <ToolBarTray Grid.Row="0" Name="ToolBarTray" Background="DarkGray" Height="100" VerticalAlignment="Top">
+            <ToolBar Name="UndoRedoToolbar" BandIndex="0" Width="180" Height="100" ToolBarTray.IsLocked="True" Background="Silver" Loaded="ToolbarScrollRemover_Loaded" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <Button Name="Undo" Height="80" Click="Undo_Click">
+                    <Image Source="Images\Undo.png" />
+                </Button>
+                <Button Name="Redo" Height="80" Click="Redo_Click" >
+                    <Image Source="Images\Redo.png" />
+                </Button>
+            </ToolBar>
+            <ToolBar Name="Tools" BandIndex="1" Width="340" Height="100" ToolBarTray.IsLocked="True" Background="Silver" Loaded="ToolbarScrollRemover_Loaded" >
+                <Button Name="Brush" Height="80" Width="80" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="BrushButton_Click">
+                    <Image Source="Images\Brush.png" />
+                </Button>
+                <Button Name="Line" Height="80" VerticalAlignment="Stretch" Click="LineButton_Click">
+                    <Image Source="Images\Line.png" />
+                </Button>
+                <Button Name="Ellipse" Height="80" VerticalAlignment="Stretch" Click="EllipseButton_Click">
+                    <Image Source="Images\Ellipse.png" />
+                </Button>
+                <Button Name="Rectangle" Height="80" VerticalAlignment="Stretch" Click="RectangleButton_Click">
+                    <Image Source="Images\Rectangle.png" />
+                </Button>
+            </ToolBar>
+            <ToolBar Name="Maincolors" BandIndex="2" Width="190" Height="100" ToolBarTray.IsLocked="True" Background="Silver" Loaded="ToolbarScrollRemover_Loaded" >
+                <Button Name="FirstColorButton"  Width="80" Height="80" Margin="3" Background="Black" Click="FirstColorButton_Click" />
+                <Button Name="SecondColorButton" Width="80" Height="80" Margin="3" Background="White" Click="SecondColorButton_Click" />
+            </ToolBar>
+            <ToolBar Name="Colors" BandIndex="3" Background="Silver" ToolBarTray.IsLocked="True" Loaded="ToolbarScrollRemover_Loaded" >
+                <Grid Width="300" Height="90">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+                    <Button Grid.Column="0" Grid.Row="0" Name="Black" Width="40" Height="40" Margin="2,0" Background="Black" Click="PaletteColorsLeft_Click" MouseRightButtonDown="PaletteColorsRight_Click" />
+                    <Button Grid.Column="1" Grid.Row="0" Name="Gray" Width="40" Height="40" Margin="2,0" Background="Gray" Click="PaletteColorsLeft_Click" MouseRightButtonDown="PaletteColorsRight_Click" />
+                    <Button Grid.Column="2" Grid.Row="0" Name="Brown" Width="40" Height="40" Margin="2,0" Background="Brown" Click="PaletteColorsLeft_Click" MouseRightButtonDown="PaletteColorsRight_Click" />
+                    <Button Grid.Column="3" Grid.Row="0" Name="Red" Width="40" Height="40" Margin="2,0" Background="Red" Click="PaletteColorsLeft_Click" MouseRightButtonDown="PaletteColorsRight_Click" />
+                    <Button Grid.Column="4" Grid.Row="0" Name="Orange" Width="40" Height="40" Margin="2,0" Background="Orange" Click="PaletteColorsLeft_Click" MouseRightButtonDown="PaletteColorsRight_Click" />
+                    <Button Grid.Column="5" Grid.Row="0" Name="Yellow" Width="40" Height="40" Margin="2,0" Background="Yellow" Click="PaletteColorsLeft_Click" MouseRightButtonDown="PaletteColorsRight_Click" />
+
+                    <Button Grid.Column="0" Grid.Row="2" Name="White" Width="40" Height="40" Margin="2,0" Background="White" VerticalAlignment="Bottom" Click="PaletteColorsLeft_Click" MouseRightButtonDown="PaletteColorsRight_Click" />
+                    <Button Grid.Column="1" Grid.Row="2" Name="LightGray" Width="40" Height="40" Margin="2,0" Background="LightGray" VerticalAlignment="Bottom" Click="PaletteColorsLeft_Click" MouseRightButtonDown="PaletteColorsRight_Click" />
+                    <Button Grid.Column="2" Grid.Row="2" Name="Sienna" Width="40" Height="40" Margin="2,0" Background="Sienna" VerticalAlignment="Bottom" Click="PaletteColorsLeft_Click" MouseRightButtonDown="PaletteColorsRight_Click" />
+                    <Button Grid.Column="3" Grid.Row="2" Name="Pink" Width="40" Height="40" Margin="2,0" Background="Pink" VerticalAlignment="Bottom" Click="PaletteColorsLeft_Click" MouseRightButtonDown="PaletteColorsRight_Click" />
+                    <Button Grid.Column="4" Grid.Row="2" Name="Green" Width="40" Height="40" Margin="2,0" Background="Green" VerticalAlignment="Bottom" Click="PaletteColorsLeft_Click" MouseRightButtonDown="PaletteColorsRight_Click" />
+                    <Button Grid.Column="5" Grid.Row="2" Name="Blue" Width="40" Height="40" Margin="2,0" Background="Blue" VerticalAlignment="Bottom" Click="PaletteColorsLeft_Click" MouseRightButtonDown="PaletteColorsRight_Click" />
+                </Grid>
+            </ToolBar>
+            <ToolBar Name="UtilitiesToolbar" BandIndex="4" Width="260" Height="100" ToolBarTray.IsLocked="True" Background="Silver" Loaded="ToolbarScrollRemover_Loaded" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,-68,0" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+
+                    <Button x:Name="EditButton" Grid.Row="0" Content="Edit mode: OFF" Margin="20,5,10,5" Width="210" Click="EditButton_Click" Height="40" FontWeight="Bold"/>
+                    <Button x:Name="FiltersButton" Grid.Row="1" Content="Filters" Margin="20,5,10,5" Width="210" Height="40" FontWeight="Bold" FontSize="24" Click="FiltersButton_Click"/>
+                </Grid>
+            </ToolBar>
+        </ToolBarTray>
+        <Grid Grid.Row="1" Width="1280" Height="713" >
+            <Canvas x:Name="MyCanvas" Background="White" MouseDown="MyCanvas_MouseDown" MouseUp="MyCanvas_MouseUp" MouseMove="MyCanvas_MouseMove" />
+        </Grid>
+    </Grid>
+</Window>

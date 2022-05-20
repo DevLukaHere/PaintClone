@@ -1,0 +1,74 @@
+﻿<Window x:Class="Paint.ChooseColorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Paint"
+        mc:Ignorable="d"
+        Title="Choose your new color" WindowStartupLocation="CenterScreen" Height="709.899" Width="800" WindowStyle="ToolWindow" FontSize="48" Background="DarkGray">
+    <Grid>
+        <Label Content="Obecny kolor (HEX):" HorizontalAlignment="Left" Margin="115,10,0,0" VerticalAlignment="Top" FontFamily="Times New Roman" FontWeight="Bold" FontSize="36" Foreground="#FF3A1212"/>
+        <TextBox Name="HexLabel" HorizontalAlignment="Left" Height="49" Margin="461,12,0,0" TextWrapping="Wrap" Text="Default" VerticalAlignment="Top" Width="199" FontSize="36"/>
+        <GroupBox Header="CMYK" HorizontalAlignment="Left" Height="250" Margin="10,61,0,0" VerticalAlignment="Top" Width="772" RenderTransformOrigin="0.502,0.458" FontSize="36" FontWeight="Bold">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="20*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+
+                <Label x:Name="Cyan" Grid.Column="0" Grid.Row="0" Content="Cyan:" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" FontSize="24"/>
+                <Label x:Name="Magenta" Grid.Column="0" Grid.Row="1" Content="Magenta:" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" FontSize="24"/>
+                <Label x:Name="Yellow" Grid.Column="0" Grid.Row="2" Content="Yellow:" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" FontSize="24"/>
+                <Label x:Name="Black" Grid.Column="0" Grid.Row="3" Content="Black key:" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" FontSize="24"/>
+
+                <Label x:Name="CyanPercent" Grid.Column="1" Grid.Row="0" Content="0%" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" FontSize="24"/>
+                <Label x:Name="MagentaPercent" Grid.Column="1" Grid.Row="1" Content="0%" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" FontSize="24"/>
+                <Label x:Name="YellowPercent" Grid.Column="1" Grid.Row="2" Content="0%" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" FontSize="24"/>
+                <Label x:Name="BlackPercent" Grid.Column="1" Grid.Row="3" Content="0%" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" FontSize="24"/>
+
+                <Slider Name="CyanSlider" Grid.Column="2" Grid.Row="0" Maximum="100" VerticalAlignment="Center" Margin="10,15,10,10" ValueChanged="CyanSlider_ValueChanged"  />
+                <Slider Name="MagentaSlider" Grid.Column="2" Grid.Row="1" Maximum="100" VerticalAlignment="Center" Margin="10,15,10,10" ValueChanged="MagentaSlider_ValueChanged"  />
+                <Slider Name="YellowSlider" Grid.Column="2" Grid.Row="2" Maximum="100" VerticalAlignment="Center" Margin="10,15,10,10" ValueChanged="YellowSlider_ValueChanged"  />
+                <Slider Name="BlackSlider" Grid.Column="2" Grid.Row="3" Maximum="100" VerticalAlignment="Center" Margin="10,15,10,10" ValueChanged="BlackSlider_ValueChanged"  />
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="RGB" HorizontalAlignment="Left" Height="250" Margin="10,316,0,0" VerticalAlignment="Top" Width="772" RenderTransformOrigin="0.502,0.458" FontWeight="Bold" FontSize="36">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="20*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+
+                <Label x:Name="Red" Grid.Column="0" Grid.Row="0" Content="Red:" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" FontSize="24"/>
+                <Label x:Name="Green" Grid.Column="0" Grid.Row="1" Content="Green:" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" FontSize="24"/>
+                <Label x:Name="Blue" Grid.Column="0" Grid.Row="2" Content="Blue:" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" FontSize="24"/>
+
+                <Label x:Name="RedPercent" Grid.Column="1" Grid.Row="0" Content="0" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" FontSize="24"/>
+                <Label x:Name="GreenPercent" Grid.Column="1" Grid.Row="1" Content="0" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" FontSize="24"/>
+                <Label x:Name="BluePercent" Grid.Column="1" Grid.Row="2" Content="0" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" FontSize="24"/>
+
+                <Slider Name="RedSlider" Grid.Column="2" Grid.Row="0" Maximum="255" VerticalAlignment="Center" Margin="10,15,10,10" ValueChanged="RedSlider_ValueChanged"  />
+                <Slider Name="GreenSlider" Grid.Column="2" Grid.Row="1" Maximum="255" VerticalAlignment="Center" Margin="10,15,10,10" ValueChanged="GreenSlider_ValueChanged"  />
+                <Slider Name="BlueSlider" Grid.Column="2" Grid.Row="2" Maximum="255" VerticalAlignment="Center" Margin="10,15,10,10" ValueChanged="BlueSlider_ValueChanged"  />
+            </Grid>
+        </GroupBox>
+        <Button Content="Choose" HorizontalAlignment="Left" Margin="484,581,0,0" VerticalAlignment="Top" Width="242" Height="77" FontWeight="Bold" FontSize="36" Click="Button_Click"/>
+        <Label Name="CurrentColor" Content="" HorizontalAlignment="Left" Margin="276,581,0,0" VerticalAlignment="Top" Height="77" Width="164" Background="Black"/>
+        <Label Name="CmykLabel" Grid.Column="0" Grid.Row="0" Content="CMYK: 0,0,0,0" HorizontalAlignment="Left" Margin="10,581,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
+        <Label Name="RGBLabel" Grid.Column="0" Grid.Row="0" Content="RGB: 0,0,0" HorizontalAlignment="Left" Margin="10,621,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
+
+    </Grid>
+</Window>

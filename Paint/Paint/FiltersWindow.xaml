@@ -1,0 +1,73 @@
+﻿<Window x:Name="FiltersWin" x:Class="Paint.FiltersWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Paint"
+        mc:Ignorable="d"
+        Title="Filters" Height="582" Width="1637" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="2*" />
+
+        </Grid.RowDefinitions>
+        <Grid x:Name="ButtonsGrid" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="0.6*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="LowButton" Grid.Column="0" Content="Low-pass" Margin="10"  FontWeight="Bold" Background="#FFACACAC" FontSize="36" FontFamily="Times New Roman" Click="FilterButton_Click"/>
+            <Button x:Name="HighButton" Grid.Column="1" Content="High-pass" Margin="10"  FontWeight="Bold" Background="#FFACACAC" FontSize="36" FontFamily="Times New Roman" Click="FilterButton_Click"/>
+            <Button x:Name="LaplaceButton" Grid.Column="2" Content="Laplace" Margin="10"  FontWeight="Bold" Background="#FFACACAC" FontSize="36" FontFamily="Times New Roman" Click="FilterButton_Click"/>
+            <Button x:Name="StartButton" Grid.Column="4" Content="Start" Margin="10"  FontWeight="Bold" Background="#FFACACAC" FontSize="48" FontFamily="Times New Roman" Click="StartButton_Click"/>
+            <Button x:Name="LoadButton" Grid.Column="5" Content="Load image" Margin="10"  FontWeight="Bold" Background="#FFACACAC" FontSize="28" FontFamily="Times New Roman" Click="LoadButton_Click"/>
+            <Grid Grid.Column="3" Margin="0,10,0,0" Height="90" VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="Mask1" MaxLength="2" Grid.Row="0" Grid.Column="0" FontFamily="Times New Roman" FontSize="24">0</TextBox>
+                <TextBox x:Name="Mask2" MaxLength="2" Grid.Row="0" Grid.Column="1" FontFamily="Times New Roman" FontSize="24">0</TextBox>
+                <TextBox x:Name="Mask3" MaxLength="2" Grid.Row="0" Grid.Column="2" FontFamily="Times New Roman" FontSize="24">0</TextBox>
+
+                <TextBox x:Name="Mask4" MaxLength="2" Grid.Row="1" Grid.Column="0" FontFamily="Times New Roman" FontSize="24">0</TextBox>
+                <TextBox x:Name="Mask5" MaxLength="2" Grid.Row="1" Grid.Column="1" FontFamily="Times New Roman" FontSize="24">0</TextBox>
+                <TextBox x:Name="Mask6" MaxLength="2" Grid.Row="1" Grid.Column="2" FontFamily="Times New Roman" FontSize="24">0</TextBox>
+
+                <TextBox x:Name="Mask7" MaxLength="2" Grid.Row="2" Grid.Column="0" FontFamily="Times New Roman" FontSize="24">0</TextBox>
+                <TextBox x:Name="Mask8" MaxLength="2" Grid.Row="2" Grid.Column="1" FontFamily="Times New Roman" FontSize="24">0</TextBox>
+                <TextBox x:Name="Mask9" MaxLength="2" Grid.Row="2" Grid.Column="2" FontFamily="Times New Roman" FontSize="24">0</TextBox>
+            </Grid>
+        </Grid>
+        <Grid x:Name="CanvasGrid" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="CanvasLeftGrid" Grid.Column="0" >
+                <Border BorderBrush="Black" BorderThickness="3" />
+                <Image x:Name="LeftImage" Stretch="Fill" Grid.Column="0" Margin="5"/>
+            </Grid>
+            <Grid x:Name="CanvasRightGrid" Grid.Column="1" Margin="5,0,0,0">
+                <Border BorderBrush="Black" BorderThickness="3" />
+                <Image x:Name="RightImage" Stretch="Fill" Margin="5"/>
+            </Grid>
+
+
+
+        </Grid>
+        <Label Name="AlertBox" Content="Filtrowanie zajmuje kilkanascie sekund (wczytaj obraz dla lepszego efektu)"  HorizontalAlignment="Left" Margin="39,5,0,0" Grid.Row="2" VerticalAlignment="Top" FontSize="48" FontFamily="Times New Roman" FontWeight="Bold" Background="{x:Null}"/>
+    </Grid>
+</Window>
